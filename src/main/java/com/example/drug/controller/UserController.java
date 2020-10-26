@@ -72,7 +72,7 @@ public class UserController {
      */
     @PostMapping("updateUsername")
     public String updateUsername(@RequestBody Map params){
-        return userService.updatePass(params.get("account").toString(),
+        return userService.updateUsername(params.get("account").toString(),
                 params.get("username").toString());
     }
 
