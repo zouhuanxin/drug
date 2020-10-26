@@ -39,12 +39,13 @@ public class SMSUtil {
     /**
      * 发送短信推送
      */
-    public void sendDrug(String phone,String url){
-        //{"mobile":"xxxxxxxxxxx","sign_id":*,"temp_id":*}
+    public void sendDrug(String phone,int id){
+        //{"mobile":"xxxxxxxxxxxxxx","sign_id":*,"temp_id":1,"temp_para":{"xxxx":"xxxx"}
         JSONObject req = new JSONObject();
-        req.put("mobile","");
+        req.put("mobile",phone);
         req.put("sign_id","d28fedba40543d3cc7916bf9");
-        req.put("temp_id","99ef421bc8b3b586da12785c");
+        req.put("temp_id","185391");
+        req.put("temp_para","{\"url\":\""+id+"\"}");
         httpUtil.doPost("https://api.sms.jpush.cn/v1/codes", req.toJSONString(), new HttpUtil.HttpCallBack() {
             @Override
             public void Error() {
@@ -53,7 +54,7 @@ public class SMSUtil {
 
             @Override
             public void Success(String str) {
-
+                System.out.println("短信发送结果"+str);
             }
         });
     }

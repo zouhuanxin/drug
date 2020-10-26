@@ -10,6 +10,31 @@ spring:
     password: root
     url: jdbc:mysql://localhost:3306/drug?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
     driver-class-name: com.mysql.cj.jdbc.Driver
+  mail:
+    # 邮件服务地址
+    host: smtp.qq.com
+    # 端口,可不写默认
+    port: 465
+    # 编码格式
+    default-encoding: utf-8
+    # 用户名
+    username: 634448817@qq.com
+    # 授权码，就是我们刚才准备工作获取的代码
+    password: jfnftjdizifqbfdj
+    # 其它参数
+    properties:
+      mail:
+        smtp:
+          # 如果是用 SSL 方式，需要配置如下属性,使用qq邮箱的话需要开启
+          ssl:
+            enable: true
+            required: true
+          # 邮件接收时间的限制，单位毫秒
+          timeout: 10000
+          # 连接时间的限制，单位毫秒
+          connectiontimeout: 10000
+          # 邮件发送时间的限制，单位毫秒
+          writetimeout: 10000
 
 mybatis:
   type-aliases-package: com.example.drug.entity

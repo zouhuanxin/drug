@@ -75,4 +75,13 @@ public class UserController {
         return userService.updatePass(params.get("account").toString(),
                 params.get("username").toString());
     }
+
+    /**
+     * 修改邮箱
+     */
+    @PostMapping("updateEmail")
+    public String updateEmail(@RequestBody Map params){
+        return userService.updateEmail(params.get("account").toString(),
+                params.get("email").toString());
+    }
 }

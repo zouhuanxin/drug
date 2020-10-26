@@ -6,7 +6,7 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
         window.onload = function () {
-            axios.get('http://192.168.1.100:8085/ByIdRemind?id='+getQueryVariable("id"))
+            axios.get('http://123.57.45.169:8084/ByIdRemind?id='+getQueryVariable("id"))
                 .then(function (response) {
                     console.log(response.data.data);
                     document.getElementById("title").innerText = response.data.data.drugname;
@@ -18,7 +18,7 @@
                 });
         }
         function click1(){
-            axios.get('http://192.168.1.100:8085/updateStatus?b=1&id='+getQueryVariable("id"))
+            axios.get('http://123.57.45.169:8084/updateStatus?b=1&id='+getQueryVariable("id"))
                 .then(function (response) {
                     console.log(response.data);
                     // if (response.data.code == 200){

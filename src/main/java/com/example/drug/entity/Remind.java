@@ -10,6 +10,8 @@ public class Remind {
     private String drugtaketime;
     private int drugstatus;
     private String createdtime;
+    private String email;
+    private int emailstatus;
 
     public int getId() {
         return id;
@@ -83,6 +85,22 @@ public class Remind {
         this.createdtime = createdtime;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public int getEmailstatus() {
+        return emailstatus;
+    }
+
+    public void setEmailstatus(int emailstatus) {
+        this.emailstatus = emailstatus;
+    }
+
     @Override
     public String toString() {
         return "Remind{" +
@@ -95,6 +113,8 @@ public class Remind {
                 ", drugtaketime='" + drugtaketime + '\'' +
                 ", drugstatus=" + drugstatus +
                 ", createdtime='" + createdtime + '\'' +
+                ", email='" + email + '\'' +
+                ", emailstatus=" + emailstatus +
                 '}';
     }
 }

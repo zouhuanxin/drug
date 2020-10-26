@@ -28,4 +28,10 @@ public interface UserMapper {
      */
     @Update("update userinfo set username=#{username} where account=#{account}")
     int updateUsername(String account,String username);
+
+    /**
+     * 修改邮箱
+     */
+    @Update("update userinfo set email=#{email} where account=#{account}")
+    int updateEmail(String account,String email);
 }

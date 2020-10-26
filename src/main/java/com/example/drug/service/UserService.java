@@ -118,4 +118,26 @@ public class UserService {
         }
         return res.toJSONString();
     }
+
+    /**
+     * 修改邮箱
+     */
+    public String updateEmail(String account, String email) {
+        JSONObject res = new JSONObject();
+        if (TextUtil.isEmpty(account) || TextUtil.isEmpty(email)) {
+            res.put("code", Constant.ERROR_STATUS);
+            res.put("msg", Constant.ERROR);
+        } else {
+            int t = userMapper.updateEmail(account, email);
+            if (t == 0) {
+                res.put("code", Constant.ERROR_STATUS);
+                res.put("msg", Constant.ERROR);
+            } else {
+                res.put("code", Constant.SUCCESS_STATUS);
+                res.put("msg", Constant.SUCCESS);
+            }
+            res.put("data", t);
+        }
+        return res.toJSONString();
+    }
 }
