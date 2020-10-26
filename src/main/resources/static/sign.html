@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sign</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        window.onload = function () {
+            axios.get('http://192.168.1.100:8085/ByIdRemind?id='+getQueryVariable("id"))
+                .then(function (response) {
+                    console.log(response.data.data);
+                    document.getElementById("title").innerText = response.data.data.drugname;
+                    document.getElementById("content").innerText = response.data.data.drugdesc;
+                    document.getElementById("image").src = response.data.data.drugimage;
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        }
+        function click1(){
+            axios.get('http://192.168.1.100:8085/updateStatus?b=1&id='+getQueryVariable("id"))
+                .then(function (response) {
+                    console.log(response.data);
+                    // if (response.data.code == 200){
+                    //     alert(response.data.msg)
+                    // }
+                    alert(response.data.msg)
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        }
+        function getQueryVariable(variable) {
+            var query = window.location.search.substring(1);
+            var vars = query.split("&");
+            for (var i=0;i<vars.length;i++) {
+                var pair = vars[i].split("=");
+                if(pair[0] == variable){return pair[1];}
+            }
+            return(false);
+        }
+    </script>
+    <style>
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            transition: 0.3s;
+            width: 200px;
+            border-radius: 5px;
+            margin: 10px;
+            padding: 20px;
+        }
+        .button {
+            border-radius: 5px;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<DIV class="card" style="margin: 0 auto;text-align: center;">
+
+    <button id="b1" class="button" onclick="click1()">点击确认服药</button>
+    <h3 id="title"></h3>
+    <p id="content"></p>
+    <img id="image" style="height: 100px;width: 100px;position: relative;"/>
+
+</DIV>
+
+</body>
+</html>

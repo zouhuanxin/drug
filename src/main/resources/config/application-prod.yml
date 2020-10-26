@@ -1,0 +1,15 @@
+server:
+  port: 8084
+
+spring:
+  mvc:
+    view:
+      suffix: .html
+  datasource:
+    username: root
+    password: Juan0121
+    url: jdbc:mysql://localhost:3306/drug?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis:
+  type-aliases-package: com.example.drug.entity

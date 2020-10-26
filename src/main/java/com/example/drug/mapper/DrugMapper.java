@@ -1,0 +1,39 @@
+package com.example.drug.mapper;
+
+import com.example.drug.entity.Remind;
+import org.apache.ibatis.annotations.*;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+@Mapper
+@Repository("DrugMapper")
+public interface DrugMapper {
+
+    @Insert("insert into remind(account,drugimage,drugname,drugdesc,drugcreatedtime,drugtaketime) " +
+            "values (#{account},#{drugimage},#{drugname},#{drugdesc},#{drugcreatedtime},#{drugtaketime})")
+    int addDrug(String account,String drugimage,String drugname,String drugdesc,String drugcreatedtime,String drugtaketime);
+
+    @Delete("delete from remind where id=#{id}")
+    int removeDrug(String id);
+
+    @Update("update remind set drugimage=#{drugimage} , drugdesc=#{drugdesc} , drugcreatedtime=" +
+            "#{drugcreatedtime} , drugtaketime=#{drugtaketime} where id=#{id}")
+    int updateDrug(String drugimage,String drugdesc,String drugcreatedtime,String drugtaketime,String id);
+
+    @Select("select * from remind where account=#{account}")
+    List<Remind> AllRemindData(String account);
+
+    @Select("select * from remind where id=#{id}")
+    Remind ByIdRemind(String id);
+
+    @Update("update remind set drugstatus=#{b} where id=#{id}")
+    int updateStatus(String b,String id);
+
+    /**
+     * 得到当前药物状态
+     */
+    @Select("select * from remind where id=#{id}")
+    Remind ByIdRemindStatus(String id);
+
+}
