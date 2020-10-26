@@ -36,7 +36,7 @@ public class TimingTask {
         for (int i = 0; i < reminds.size(); i++) {
             long dif = subtractionTime(reminds.get(i).getDrugtaketime());
             if (dif >= 0 && dif <= 5){
-                if (reminds.get(i).getEmail() != null){
+                if (reminds.get(i).getEmail() != null && reminds.get(i).getEmailstatus() == 0){
                     drugMapper.updateRemindEmailStatus(1,reminds.get(i).getId());
                     emailUtil.sendSimpleMailMessge(reminds.get(i).getEmail(), "您有服药提醒",
                             "您好！您有新的服药提醒请注意服药并点击链接确认服药！http://123.57.45.169:8084/Sign.html?id="+reminds.get(i).getId());
