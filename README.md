@@ -31,4 +31,6 @@
 对应服务器地址：
 https://github.com/zouhuanxin/drugApp
 
+- 邮箱：634448817@qq.com
+
   
