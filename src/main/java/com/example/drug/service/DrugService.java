@@ -61,7 +61,7 @@ public class DrugService {
     /**
      * 修改
      */
-    public String updateDrug(String drugimage, String drugdesc, String drugcreatedtime, String drugtaketime, String id) {
+    public String updateDrug(String drugname,String drugimage, String drugdesc, String drugcreatedtime, String drugtaketime, String id) {
         JSONObject res = new JSONObject();
         if (drugimage == null && drugimage.indexOf("http") == -1) {
             res.put("code", Constant.ERROR_STATUS);
@@ -71,7 +71,7 @@ public class DrugService {
             res.put("code", Constant.ERROR_STATUS);
             res.put("msg", Constant.ERROR);
         } else {
-            int t = drugMapper.updateDrug(drugimage, drugdesc, drugcreatedtime, drugtaketime, id);
+            int t = drugMapper.updateDrug(drugname,drugimage, drugdesc, drugcreatedtime, drugtaketime, id);
             if (t <= 0) {
                 res.put("code", Constant.ERROR_STATUS);
                 res.put("msg", Constant.ERROR);

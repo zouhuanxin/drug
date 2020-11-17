@@ -17,9 +17,9 @@ public interface DrugMapper {
     @Delete("delete from remind where id=#{id}")
     int removeDrug(String id);
 
-    @Update("update remind set drugimage=#{drugimage} , drugdesc=#{drugdesc} , drugcreatedtime=" +
+    @Update("update remind set drugname=#{drugname}, drugimage=#{drugimage} , drugdesc=#{drugdesc} , drugcreatedtime=" +
             "#{drugcreatedtime} , drugtaketime=#{drugtaketime} where id=#{id}")
-    int updateDrug(String drugimage, String drugdesc, String drugcreatedtime, String drugtaketime, String id);
+    int updateDrug(String drugname,String drugimage, String drugdesc, String drugcreatedtime, String drugtaketime, String id);
 
     @Select("select * from remind where account=#{account}")
     List<Remind> AllRemindData(String account);

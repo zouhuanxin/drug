@@ -28,7 +28,8 @@ public class DrugController {
 
     @PostMapping("updateDrug")
     public String updateDrug(@RequestBody Map params) {
-        return drugService.updateDrug(params.get("drugimage").toString()
+        return drugService.updateDrug(params.get("drugname").toString(),
+                params.get("drugimage").toString()
                 , params.get("drugdesc").toString()
                 , params.get("drugcreatedtime").toString()
                 , params.get("drugtaketime").toString()
